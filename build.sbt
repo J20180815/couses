@@ -17,6 +17,8 @@ libraryDependencies += "co.fs2" %% "fs2-io" % "3.2.2"
 libraryDependencies += "org.gnieh" %% "fs2-data-csv" % "1.3.0"
 libraryDependencies += "org.gnieh" %% "fs2-data-csv-generic" % "1.3.0"
 
+addCompilerPlugin("org.typelevel" % "kind-projector" % "0.13.2" cross CrossVersion.full)
+
 scalacOptions ++= Seq(
   "-feature",
   "-deprecation",
@@ -41,9 +43,9 @@ val configDependencies = List(
   "dev.zio" %% "zio-config-refined" % zioConfigVersion,
   "dev.zio" %% "zio-config-typesafe" % zioConfigVersion,
   "org.apache.httpcomponents" % "httpasyncclient" % "4.1.3"
-).map(_ excludeAll(
+).map(_ excludeAll
   ExclusionRule("zio")
-  ))
+  )
 
 val zioVersion = "1.0.3"
 libraryDependencies += "dev.zio" %% "zio-streams" % zioVersion
@@ -68,7 +70,7 @@ libraryDependencies ++= Seq(
   "org.http4s" %% "http4s-blaze-client" % http4sVersion
 )
 
-libraryDependencies += "dev.zio" %% "zio-redis" % "0.0.0+106-b40713b3+20201122-0748-SNAPSHOT"
+//libraryDependencies += "dev.zio" %% "zio-redis" % "0.0.0+106-b40713b3+20201122-0748-SNAPSHOT"
 libraryDependencies ++= Seq(
   "ch.qos.logback"       % "logback-classic"          % "1.2.3",
   "net.logstash.logback" % "logstash-logback-encoder" % "6.4"
