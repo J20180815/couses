@@ -8,7 +8,7 @@ class GenericToolsTest extends AnyWordSpec {
     import timetools.DateTimeWrapper._
     case class Sale(id: String, amount: BigDecimal, dateTime: String)
     case class DailySaleRecord(date: DateNum, id: String, dailyAmount: BigDecimal)
-// git test
+// git test   more
     "handle empty data properly" in {
       val dailyWinners = Vector.empty[Sale].groupBy(_.dateTime.dateNumber).view.mapValues(_.groupBy(_.id).view.mapValues(_.map(_.amount).sum).maxBy(_._2)).toMap
       val dailyWinnersRecords = dailyWinners.map{case(date, (id, dailyAmount)) => DailySaleRecord(date, id, dailyAmount)}.toVector
